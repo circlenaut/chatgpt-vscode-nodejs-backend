@@ -17,17 +17,17 @@ export function activate(context: vscode.ExtensionContext) {
    *   @Example_Command    *
    *************************/
   context.subscriptions.push(
-    vscode.commands.registerCommand("vodoo.askQuestion", async () => {
+    vscode.commands.registerCommand("chatgpt-vscode-nodejs-backend.askQuestion", async () => {
       /**
        * Remeber to add command in `package.json`,
        * @activatinEvents and @commonds
        *
        * * Example:
        * "activationEvents":[
-       *    "onCommand":"vodoo.askQuestion"
+       *    "onCommand":"chatgpt-vscode-nodejs-backend.askQuestion"
        *  ]
        *  "commands":[{
-       *    "command":"vodoo.askQuestion",
+       *    "command":"chatgpt-vscode-nodejs-backend.askQuestion",
        *    "title":"Ask a question"
        *  }]
        */
@@ -58,7 +58,7 @@ export function activate(context: vscode.ExtensionContext) {
 
   /* Creates the Todo Sidebar View (typical extension view) */
   context.subscriptions.push(
-    vscode.commands.registerCommand("vodoo.authenticate", () => {
+    vscode.commands.registerCommand("chatgpt-vscode-nodejs-backend.authenticate", () => {
       try {
         authenticate(() => {});
       } catch (err) {
@@ -73,10 +73,10 @@ export function activate(context: vscode.ExtensionContext) {
   );
   item.text = "$(add) Add Todo";
   item.show();
-  item.command = "vodoo.addTodo";
+  item.command = "chatgpt-vscode-nodejs-backend.addTodo";
 
   context.subscriptions.push(
-    vscode.commands.registerCommand("vodoo.addTodo", () => {
+    vscode.commands.registerCommand("chatgpt-vscode-nodejs-backend.addTodo", () => {
       /**
        *  => Adding Todos form the Selected Text from active editor
        */
@@ -100,14 +100,14 @@ export function activate(context: vscode.ExtensionContext) {
   );
 
   context.subscriptions.push(
-    vscode.commands.registerCommand("vodoo.helloWorld", () => {
+    vscode.commands.registerCommand("chatgpt-vscode-nodejs-backend.helloWorld", () => {
       /* Creates a Hello World Editor View (Looks like the editor) */
       HelloWorldPanel.createOrShow(context.extensionUri);
     })
   );
 
   context.subscriptions.push(
-    vscode.commands.registerCommand("vodoo.refresh", async () => {
+    vscode.commands.registerCommand("chatgpt-vscode-nodejs-backend.refresh", async () => {
       /**
        * @refresh useful_for_debugging
        */

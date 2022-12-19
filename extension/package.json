@@ -1,21 +1,32 @@
 {
-  "name": "vodoo",
-  "displayName": "vodoo",
-  "description": "VS Code Todo",
-  "version": "0.0.1",
+  "name": "chatgpt-vscode-nodejs-backend",
+  "icon": "images/icon.png",
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/circlenaut/chatgpt-vscode-nodejs-backend"
+  },
+  "publisher": "Phillip Strefling",
+  "displayName": "ChatGPT VSCode Nodejs Backend",
+  "description": "A ChatGPT integration build using ChatGPT with a Nodejs backend for handling authentication",
+  "version": "0.0.1-rc1",
   "engines": {
     "vscode": "^1.74.0"
   },
   "categories": [
+    "Snippets",
+    "Data Science",
+    "Machine Learning",
+    "Education",
+    "Testing",
     "Other"
   ],
   "activationEvents": [
-    "onCommand:vodoo.helloWorld",
-    "onCommand:vodoo.refresh",
-    "onCommand:vodoo.askQuestion",
-    "onCommand:vodoo.addTodo",
-    "onCommand:vodoo.authenticate",
-    "onView:vodoo-sidebar"
+    "onCommand:chatgpt-vscode-nodejs-backend.helloWorld",
+    "onCommand:chatgpt-vscode-nodejs-backend.refresh",
+    "onCommand:chatgpt-vscode-nodejs-backend.askQuestion",
+    "onCommand:chatgpt-vscode-nodejs-backend.addTodo",
+    "onCommand:chatgpt-vscode-nodejs-backend.authenticate",
+    "onView:chatgpt-vscode-nodejs-backend-sidebar"
   ],
   "main": "./dist/extension.js",
   "contributes": {
@@ -41,26 +52,26 @@
     },
     "commands": [
       {
-        "command": "vodoo.helloWorld",
+        "command": "chatgpt-vscode-nodejs-backend.helloWorld",
         "title": "Hello World"
       },
       {
-        "command": "vodoo.askQuestion",
+        "command": "chatgpt-vscode-nodejs-backend.askQuestion",
         "category": "Vodoo",
         "title": "Ask Question"
       },
       {
-        "command": "vodoo.refresh",
+        "command": "chatgpt-vscode-nodejs-backend.refresh",
         "category": "Vodoo",
         "title": "Refresh"
       },
       {
-        "command": "vodoo.authenticate",
+        "command": "chatgpt-vscode-nodejs-backend.authenticate",
         "category": "Vodoo",
         "title": "Authenticate"
       },
       {
-        "command": "vodoo.addTodo",
+        "command": "chatgpt-vscode-nodejs-backend.addTodo",
         "category": "Vodoo",
         "title": "Add Todo from Selection"
       }
@@ -69,8 +80,8 @@
   "scripts": {
     "vscode:prepublish": "npm run package",
     "vscode:package": "vsce package",
-    "vscode:install": "code --install-extension chatgpt-vscode-plugin-1.1.10-rc1.vsix",
-    "vscode:clean": "del chatgpt-vscode-plugin-1.1.10-rc1.vsix",
+    "vscode:install": "code --install-extension chatgpt-vscode-nodejs-backend-0.0.1-rc1.vsix",
+    "vscode:clean": "del chatgpt-vscode-nodejs-backend-0.0.1-rc1.vsix",
     "setup": "npm install",
     "compile": "webpack",
     "watch": "concurrently \"rollup -c -w\" \"webpack --watch\"",
@@ -84,6 +95,7 @@
   "devDependencies": {
     "@rollup/plugin-commonjs": "^20.0.0",
     "@rollup/plugin-node-resolve": "^13.0.4",
+    "@rollup/plugin-terser": "^0.2.0",
     "@rollup/plugin-typescript": "^8.2.5",
     "@tsconfig/svelte": "^2.0.1",
     "@types/glob": "^7.1.3",
@@ -93,6 +105,7 @@
     "@types/vscode": "^1.74.0",
     "@typescript-eslint/eslint-plugin": "^4.26.0",
     "@typescript-eslint/parser": "^4.26.0",
+    "@vscode/test-electron": "^1.5.2",
     "@vscode/vsce": "^2.15.0",
     "concurrently": "^6.2.0",
     "del-cli": "^5.0.0",
@@ -101,13 +114,11 @@
     "mocha": "^8.4.0",
     "rollup": "^2.3.4",
     "rollup-plugin-svelte": "^6.0.0",
-    "rollup-plugin-terser": "^7.0.2",
     "svelte": "^3.42.1",
     "svelte-check": "^2.2.4",
     "svelte-preprocess": "^4.7.4",
     "ts-loader": "^9.2.2",
     "typescript": "^4.3.2",
-    "vscode-test": "^1.5.2",
     "webpack": "^5.38.1",
     "webpack-cli": "^4.7.0"
   },

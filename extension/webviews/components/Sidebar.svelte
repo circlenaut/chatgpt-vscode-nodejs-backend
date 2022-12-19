@@ -31,7 +31,7 @@
 </script>
 
 <main>
-  <h1>Vodoo</h1>
+  <h1>ChatGPT</h1>
 
   {#if loading}
     <div class="loading">Loading...</div>

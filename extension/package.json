@@ -33,20 +33,20 @@
     "viewsContainers": {
       "activitybar": [
         {
-          "id": "vodoo-sidebar-view",
-          "title": "Vodoo",
-          "icon": "media/checklist.svg"
+          "id": "chatgpt-vscode-nodejs-backend",
+          "title": "ChatGPT",
+          "icon": "images/icon.png"
         }
       ]
     },
     "views": {
-      "vodoo-sidebar-view": [
+      "chatgpt-vscode-nodejs-backend": [
         {
           "type": "webview",
-          "id": "vodoo-sidebar",
-          "name": "Vodoo",
-          "icon": "media/checklist.svg",
-          "contextualTitle": "Vodoo"
+          "id": "chatgpt-vscode-nodejs-backend.view",
+          "name": "ChatGPT",
+          "icon": "images/icon.png",
+          "contextualTitle": "ChatGPT"
         }
       ]
     },
@@ -57,22 +57,22 @@
       },
       {
         "command": "chatgpt-vscode-nodejs-backend.askQuestion",
-        "category": "Vodoo",
+        "category": "ChatGPT",
         "title": "Ask Question"
       },
       {
         "command": "chatgpt-vscode-nodejs-backend.refresh",
-        "category": "Vodoo",
+        "category": "ChatGPT",
         "title": "Refresh"
       },
       {
         "command": "chatgpt-vscode-nodejs-backend.authenticate",
-        "category": "Vodoo",
+        "category": "ChatGPT",
         "title": "Authenticate"
       },
       {
         "command": "chatgpt-vscode-nodejs-backend.addTodo",
-        "category": "Vodoo",
+        "category": "ChatGPT",
         "title": "Add Todo from Selection"
       }
     ]

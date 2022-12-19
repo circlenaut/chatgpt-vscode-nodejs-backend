@@ -53,7 +53,7 @@ export function activate(context: vscode.ExtensionContext) {
   const sidebarProvider = new SidebarProvider(context.extensionUri);
   /* Creates the Todo Sidebar View (typical extension view) */
   context.subscriptions.push(
-    vscode.window.registerWebviewViewProvider("vodoo-sidebar", sidebarProvider)
+    vscode.window.registerWebviewViewProvider("chatgpt-vscode-nodejs-backend.view", sidebarProvider)
   );
 
   /* Creates the Todo Sidebar View (typical extension view) */
@@ -113,7 +113,7 @@ export function activate(context: vscode.ExtensionContext) {
        */
       await vscode.commands.executeCommand("workbench.action.closeSidebar");
       await vscode.commands.executeCommand(
-        "workbench.view.extension.vodoo-sidebar-view"
+        "workbench.view.extension.chatgpt-vscode-nodejs-backend"
       );
       setTimeout(() => {
         vscode.commands.executeCommand(

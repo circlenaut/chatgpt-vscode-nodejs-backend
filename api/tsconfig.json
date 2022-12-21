@@ -1,14 +1,16 @@
 {
   "compilerOptions": {
-    "target": "es2017",
+    "target": "es2020",
+    "types": ["node"],
     "module": "commonjs",
-    "lib": ["dom", "es6", "es2017", "esnext.asynciterable"],
+    "lib": ["dom", "es6", "es2020", "esnext.asynciterable"],
     "skipLibCheck": true,
     "sourceMap": true,
     "outDir": "./dist",
     "moduleResolution": "node",
     "removeComments": true,
     "noImplicitAny": true,
+    "strict": true,
     "strictNullChecks": true,
     "strictFunctionTypes": true,
     "noImplicitThis": true,
@@ -20,6 +22,7 @@
     "esModuleInterop": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "baseUrl": "."
   },

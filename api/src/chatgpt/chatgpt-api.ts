@@ -7,7 +7,7 @@ import {
 } from 'chatgpt';
 
 
-interface Credentials {
+export interface Credentials {
     email?: string;
     password?: string;
     isGoogleLogin?: boolean;
@@ -55,7 +55,7 @@ export class ChatGPT {
         return this.fetchCredentials();
     };
 
-    public setup = async(): Promise<ChatGPTAPIBrowser | void> => {
+    public setup = async(): Promise<boolean | void> => {
         if (!this.credentials?.email || !this.credentials?.password) {
             throw new Error(
                 `Credentials are not valid, '${this.credentials?.email}', '${this.credentials?.password}'`
@@ -63,13 +63,12 @@ export class ChatGPT {
         };
        
         if (!this.chatGptApiBrowser) {
+            console.info('Initializing ChatGPT...');
             try {
                 const chatgpt: any = await requiresm("chatgpt");
                 const { ChatGPTAPIBrowser: _ChatGPTAPIBrowser} = chatgpt;
 
                 this.chatGptApiBrowser  = new _ChatGPTAPIBrowser ({...this.credentials});
-
-                return this.chatGptApiBrowser;
 
             } catch (error: any) {
                 switch (error?.message) {
@@ -83,12 +82,14 @@ export class ChatGPT {
                 }
             }
         }
+        console.info('ChatGPT initialized!');
+        return true
     };
 
     public initialize = async(): Promise<boolean | void> => {
         if (!this.chatGptApiBrowser) {
             throw new Error(
-                "Please first setup ChatGPT with setup()"
+                "Please run ChatGPT setup before initializing"
             );
         };       
 
@@ -117,8 +118,7 @@ export class ChatGPT {
     ): Promise<boolean | void> => {
         const isAuth = await this.isAuthenicated();
         if (isAuth) {
-            console.warn("Already Authenticated");
-            return isAuth;
+            throw new Error("Already Authenticated");
         };
 
         try {
@@ -141,8 +141,7 @@ export class ChatGPT {
     public logout = async(): Promise<boolean | void> => {
         const isAuth = await this.isAuthenicated();
         if (!isAuth) {
-            console.warn("Already Logged Out");
-            return isAuth;
+            throw new Error("Already Logged Out");
         };
         
         try {
@@ -158,8 +157,7 @@ export class ChatGPT {
     public resetSession = async(): Promise<boolean | void> => {
         const isAuth = await this.isAuthenicated();
         if (!isAuth) {
-            console.warn("Not logged in!");
-            return isAuth;
+            throw new Error("Not logged in!");
         };
 
         try {
@@ -175,8 +173,7 @@ export class ChatGPT {
     public refreshSession = async(): Promise<boolean | void> => {
         const isAuth = await this.isAuthenicated();
         if (!isAuth) {
-            console.warn("Not logged in!");
-            return isAuth;
+            throw new Error("Not logged in!");
         };
 
         try {
@@ -199,8 +196,7 @@ export class ChatGPT {
     public isOnChatPage = async() => {
         const isAuth = await this.isAuthenicated();
         if (!isAuth) {
-            console.warn("Not logged in!");
-            return isAuth;
+            throw new Error("Not logged in!");
         };
 
         return this.chatGptApiBrowser?.isChatPage;
@@ -224,7 +220,7 @@ export class ChatGPT {
 
             if (!this.chatGptResponse) {
                 throw new Error(
-                    `Error receiving question from ChatGPT: ${question}`
+                    `Error receiving question from ChatGPT: '${question}'`
                 );
             };
 

@@ -20,7 +20,7 @@ defaultRoute.get('/health', (req, res) => {
         || req.ip
         || req.ips
     console.info(`Health request from: '${ip}'`);
-    res.status(200).send('Ok');
+    res.status(200).json({ message: 'OK' });
 });
 
 // Register all API routes

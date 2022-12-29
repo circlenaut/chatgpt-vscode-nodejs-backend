@@ -1,40 +1,42 @@
-import * as polka from "polka";
+// import * as polka from "polka";
 import * as vscode from "vscode";
 import { apiBaseUrl } from "./constants";
-import { TokenManager } from "./TokenManager";
+// import { TokenManager } from "./TokenManager";
 
 export const authenticate = (cb: () => void) => {
-  const app = polka();
+  // const app = polka();
 
-  app.get(`/auth/:token`, async (req, res) => {
-    const { token } = req.params;
-    if (!token) {
-      res.end(`<head><meta charset="UTF-8"></head>
-                <h1 style="text-align:center;">
-                  Something went wrong! ❌
-                </h1>`);
-      return;
-    }
+  // app.get(`/auth/:token`, async (req, res) => {
+  //   const { token } = req.params;
+  //   if (!token) {
+  //     res.end(`<head><meta charset="UTF-8"></head>
+  //               <h1 style="text-align:center;">
+  //                 Something went wrong! ❌
+  //               </h1>`);
+  //     return;
+  //   }
 
-    await TokenManager.setToken(token);
-    cb();
+  //   await TokenManager.setToken(token);
+  //   cb();
 
-    res.end(`<head><meta charset="UTF-8"></head>
-              <h1 style="text-align:center;">
-                Auth was Sucessfull 🚀
-              </h1>`);
+  //   res.end(`<head><meta charset="UTF-8"></head>
+  //             <h1 style="text-align:center;">
+  //               Auth was Sucessfull 🚀
+  //             </h1>`);
 
-    (app as any).server?.close();
-  });
+  //   (app as any).server?.close();
+  // });
 
-  app.listen(54321, (err: Error) => {
-    if (err) {
-      vscode.window.showErrorMessage(err.message);
-    } else {
-      vscode.commands.executeCommand(
-        "vscode.open",
-        vscode.Uri.parse(`${apiBaseUrl}/auth/github`)
-      );
-    }
-  });
+  vscode.window.showInformationMessage(`Authenticating... ${apiBaseUrl}/auth/openai`);
+  // app.listen(54321, (err: Error) => {
+  // app.listen(3001, (err: Error) => {
+  //   if (err) {
+  //     vscode.window.showErrorMessage(err.message);
+  //   } else {
+  //     // vscode.commands.executeCommand(
+  //     //   "vscode.open",
+  //     //   vscode.Uri.parse(`${apiBaseUrl}/auth/openai`)
+  //     // );
+  //   }
+  // });
 };

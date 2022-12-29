@@ -2,6 +2,16 @@
 .vscode-test/**
 out/**
 node_modules/**
+!node_modules/chatgpt
+!node_modules/busboy
+!node_modules/streamsearch
+!node_modules/undici
+!node_modules/kill-port
+!node_modules/detect-port
+!node_modules/shell-exec
+!node_modules/address
+!node_modules/debug
+!node_modules/ms
 src/**
 .gitignore
 .yarnrc

@@ -30,7 +30,7 @@ export const me = async(userId: string) => {
     // const userData = await User.get();
     // const user = userData.data();
     // return user;
-    // res.send({ user }); 
+    // res.status(201).json({ message: user });
 };
 
 export const todo = async(
@@ -42,7 +42,7 @@ export const todo = async(
     //   .doc(userId)
     //   .collection("todos")
     //   .add(todo);
-    // res.send({ todo });
+    // res.status(201).json({ message: todo });
 }
 
 export const todoUpdate = async(
@@ -54,5 +54,5 @@ export const todoUpdate = async(
     //   .doc(userId)
     //   .collection("todos")
     //   .add(todo);
-    // res.send({ todo });
+    // res.status(201).json({ message: todo });
 }
